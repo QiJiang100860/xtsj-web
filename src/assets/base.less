@@ -1,0 +1,17 @@
+@navColor:rgba(#3E7DC5,1);
+@color:#051C38;
+
+
+.textOverflow(@lineNum){
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @lineNum;
+    overflow: hidden;
+}
+
+.bgCover(@url){
+    background-image: @url;
+    background-size: cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+}

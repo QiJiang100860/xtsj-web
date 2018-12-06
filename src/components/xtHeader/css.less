@@ -1,0 +1,75 @@
+@import "../../assets/base";
+
+.header{
+    background: @navColor;
+    line-height: 80px;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 10001;
+    transition: all .5s;
+    &.current{
+        background: rgba(#3E7CC3,.9);
+    }
+    .nav{
+        a{
+            text-decoration: none;
+            color: #FBFCFE;
+            font-weight: 700;
+            margin: 0 50px;
+            position: relative;
+            &::before{
+                position: absolute;
+                content: "1";
+                color: transparent;
+                display: inline-block;
+                width: 24px;
+                height: 2px;
+                background: #fff;
+                top: 0;
+                left: 50%;
+                margin-left: -12px;
+                top: -22px;
+                opacity: 0;
+                transition: all .5s;
+            }
+            &:hover{
+                color: #fff;
+                font-weight: 700;
+                &::before{
+                    top: -12px;
+                    opacity: 1;
+                }
+            }
+
+            &.current{
+                &::before{
+                    top: -12px;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .logo-wrapper{
+        img{
+            margin-top: 20px;
+        }
+
+    }
+
+    .backTop{
+        position: fixed;
+        right: 50px;
+        bottom: -50px;
+        background: #ff0000;
+        cursor: pointer;
+        opacity: 0;
+        transition: all .3s;
+        &.current{
+            bottom: 50px;
+            opacity: 1;
+        }
+    }
+}
+
