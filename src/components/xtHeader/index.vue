@@ -4,41 +4,40 @@
             <div class="clear">
                 <div class="left logo-wrapper"><img :src="require('../../../static/images/logo.png')"></div>
                 <div class="right nav">
-                    <a href="" class="current">首页</a>
-                    <a href="">企业服务</a>
-                    <a href="">商务合作</a>
-                    <a href="">企业文化</a>
-                    <a href="">加入我们</a>
+                    <a data-link='home' @click="handleRouter" :class="{current:navType==1}">首页</a>
+                    <a data-link='service' @click="handleRouter" :class="{current:navType==2}">企业服务</a>
+                    <a data-link='cooption' @click="handleRouter" :class="{current:navType==3}">商务合作</a>
+                    <a data-link='culture' @click="handleRouter" :class="{current:navType==4}">企业文化</a>
+                    <a data-link='joinUs' @click="handleRouter" :class="{current:navType==5}">加入我们</a>
                 </div>
             </div>
         </div>
 
-        <div class="backTop" :class="{current:scrollCurrent}" @click="backTop">返回顶部</div>
+        <!-- <div class="backTop" :class="{current:scrollCurrent}" @click="backTop">返回顶部</div> -->
     </div>
 </template>
 
 <script>
 export default {
+  props: ['navType'],
+  data() {
+    return {
+      scrollCurrent: false,
+    };
+  },
   mounted() {
     window.addEventListener("scroll", this.scrollToTop);
   },
-  data() {
-    return {
-      scrollCurrent: false
-    };
+  
+
+  beforeMount () {
+    
   },
 
   methods: {
-    backTop() {
-        // document.documentElement.scrollTop-=i;
-        // if (document.documentElement.scrollTop>0) {
-        //     var c=setTimeout(()=>this.backTop(i),16);
-        // }else {
-        //     clearTimeout(c);
-        // }
-
-        document.documentElement.scrollTop=0;
-    },
+    // backTop() {
+        
+    // },
     scrollToTop() {
       const scrollTop =
         window.pageYOffset ||
@@ -47,7 +46,15 @@ export default {
       const wH =
         document.documentElement.clientHeight || document.body.clientHeight;
       this.scrollCurrent = scrollTop > wH;
+    },
+    handleRouter(e){
+      const path = e.target.dataset.link;
+      this.$router.push(path)
     }
+  },
+
+  watch: {
+
   },
   destroyed() {
     window.removeEventListener("scroll", this.scrollToTop);

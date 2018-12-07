@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <xt-header></xt-header>
     <router-view/>
-    <xt-footer></xt-footer>
   </div>
 </template>
 

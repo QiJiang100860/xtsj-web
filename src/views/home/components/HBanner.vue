@@ -51,7 +51,7 @@ export default {
 .img {
   height: 100%;
   width: 1920px;
-  background: #ff0000;
+  // background: #ff0000;
   margin-left: -352px;
   background-size:cover;
   background-position:center center;
