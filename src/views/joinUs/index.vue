@@ -5,9 +5,10 @@
       <div class="container img">
         <img :src="require('../../../static/images/service-bg.png')" alt>
       </div>
-
-      
     </div>
+
+    <jobs></jobs>
+
     <xt-footer></xt-footer>
   </div>
 </template>
@@ -16,10 +17,13 @@
 <script>
 import xtHeader from "@/components/xtHeader";
 import xtFooter from "@/components/xtFooter";
+
+import Jobs from "./components/jobs";
 export default {
   components: {
     xtHeader,
-    xtFooter
+    xtFooter,
+    Jobs
   }
 };
 </script>

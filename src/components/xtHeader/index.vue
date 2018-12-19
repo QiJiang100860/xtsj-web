@@ -2,7 +2,7 @@
     <div class="header" :class="{current:scrollCurrent}">
         <div class="container">
             <div class="clear">
-                <div class="left logo-wrapper"><img :src="require('../../../static/images/logo.png')"></div>
+                <div class="left logo-wrapper" @click="toIndex"><img :src="require('../../../static/images/logo.png')"></div>
                 <div class="right nav">
                     <a data-link='home' @click="handleRouter" :class="{current:navType==1}">首页</a>
                     <a data-link='service' @click="handleRouter" :class="{current:navType==2}">企业服务</a>
@@ -50,6 +50,10 @@ export default {
     handleRouter(e){
       const path = e.target.dataset.link;
       this.$router.push(path)
+    },
+
+    toIndex(){
+      this.$router.push('home')
     }
   },
 

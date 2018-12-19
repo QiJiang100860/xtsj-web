@@ -30,11 +30,15 @@ export default {
 
 
 <style lang="less" scoped>
-.img {
-  img {
-    display: block;
-    width: 1920px;
-    margin-left: -360px;
+.content-wrapper {
+  // padding-bottom:20px; 
+  .img {
+    img {
+      display: block;
+      width: 1920px;
+      margin-left: -360px;
+    }
   }
+
 }
 </style>

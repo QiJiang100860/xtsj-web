@@ -7,6 +7,42 @@
           <img :src="require('../../../static/images/service-bg.png')" alt>
         </div>
       </div>
+
+      <div class="clear">
+        <div class="left cooption-left">
+
+
+          <div class="right cooption-infro">
+            <div class="english-letter">Business cooperation</div>
+            <div class="chinese-letter">商务合作</div>
+            <div class="under-line"></div>
+
+
+
+            <div class="email-wrapper clear">
+              <img class="left" :src="require('../../../static/images/icon_email.png')" alt="">
+              <p class="left">15145789865@xtsj.com</p>
+            </div>
+
+
+            <div class="email-wrapper clear">
+              <img class="left" :src="require('../../../static/images/icon_phone.png')" alt="">
+              <p class="left">15145789865</p>
+            </div>
+
+
+            <div class="ewm-wrapper">
+                <img class="left" :src="require('../../../static/images/ewm_img.png')" alt="">
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="right cooption-right"></div>
+      </div>
     </div>
     <xt-footer></xt-footer>
   </div>
@@ -33,5 +69,59 @@ export default {
     width: 1920px;
     margin-left: -360px;
   }
+}
+
+.cooption-left {
+  width: 45%;
+  .cooption-infro {
+    width: 500px;
+    padding-right: 40px;
+    padding-top: 100px;
+    .english-letter {
+      font-size: 22px;
+      color: #2c4058;
+    }
+    .chinese-letter {
+      font-size: 32px;
+      color: #2c4058;
+    }
+
+    .under-line{
+      height: 6px;
+      border-top: 3px solid #000;
+      border-bottom: 1px solid #000;
+      margin-top:10px;
+    }
+
+    .email-wrapper{
+      margin-top: 30px;
+      img{
+        width: 65px;
+        height: 65px;
+      }
+      p{
+        color: #4B5561;
+        font-size: 18px;
+        line-height: 65px;
+        margin-left: 20px;
+      }
+    }
+
+    .ewm-wrapper{
+      margin-top: 30px;
+      img{
+        width: 230px;
+        height: 230px;
+      }
+    }
+  }
+}
+.cooption-right {
+  width: 55%;
+  height: 750px;
+  background-image: url("../../../static/images/postion-img.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 </style>

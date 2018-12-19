@@ -4,6 +4,8 @@
     <div class="content-wrapper">
       <div class="container">
         <img :src="require('../../../static/images/culture-bg.png')" alt>
+
+
         <div class="content">
           <h1>企业服务</h1>
           <p>Enterprise service</p>
@@ -42,6 +44,8 @@
       </div>
 
       <develop></develop>
+
+      <team></team>
     </div>
     <xt-footer></xt-footer>
   </div>
@@ -53,11 +57,13 @@ import xtHeader from "@/components/xtHeader";
 import xtFooter from "@/components/xtFooter";
 
 import develop from "./components/develop";
+import team from "./components/team"
 export default {
   components: {
     xtHeader,
     xtFooter,
-    develop
+    develop,
+    team
   }
 };
 </script>

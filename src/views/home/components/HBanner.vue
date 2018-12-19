@@ -1,7 +1,7 @@
 <template>
     <swiper :options="swiperOption">
         <swiper-slide>
-            <div class="container"><div class="img" :style="{height:bannerH+'px','background-image':'url(../../../../static/images/banner.png)'}">1</div></div>
+            <div class="container"><div class="img" :style="{height:bannerH+'px','background-image':'url('+require('../../../../static/images/banner.png')+')'}">1</div></div>
         </swiper-slide>
 
 
