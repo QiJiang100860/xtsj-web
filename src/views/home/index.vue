@@ -2,11 +2,11 @@
   <div>
     <xt-header :navType='1'></xt-header>
     <div class="content-wrapper">
-      <h-banner></h-banner>
-      <h-service></h-service>
-      <h-brief></h-brief>
-      <h-ser-adver></h-ser-adver>
-      <h-case></h-case>
+      <h-banner :data="banner"></h-banner>
+      <h-service :data="service"></h-service>
+      <h-brief :data="companyBrief"></h-brief>
+      <h-ser-adver :data="advange"></h-ser-adver>
+      <h-case :data="caseData"></h-case>
     </div>
     <xt-footer></xt-footer>
   </div>
@@ -35,7 +35,16 @@ export default {
   },
   data() {
     return {
-      bannerH: new Number()
+      bannerH: new Number(),
+
+      banner:null,
+      service:null,
+      companyBrief:{
+        advertTitle:"",
+        advertPicUrl:""
+      },
+      advange:null,
+      caseData:null,
     };
   },
   beforeMount() {
@@ -44,6 +53,11 @@ export default {
   methods: {
     getPageData() {
       home.getAdverts().then(res => {
+        this.banner = res.data.banner;
+        this.service = res.data.service;
+        this.companyBrief = res.data.companyBrief[0];
+        this.advange = res.data.advange;
+        this.caseData = res.data.case
         debugger
       });
     }

@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+import Video from '@/views/video'
+
 import Home from '@/views/home'
 import Service from '@/views/service'
 
@@ -15,7 +18,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: 'home'
+      redirect: 'video'
+    },
+
+    {
+      path: '/video',
+      name: 'Video',
+      component: Video
     },
 
     {

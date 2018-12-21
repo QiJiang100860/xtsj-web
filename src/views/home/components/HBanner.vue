@@ -1,11 +1,13 @@
 <template>
     <swiper :options="swiperOption">
-        <swiper-slide>
-            <div class="container"><div class="img" :style="{height:bannerH+'px','background-image':'url('+require('../../../../static/images/banner.png')+')'}">1</div></div>
+
+
+        <swiper-slide v-for="(item,idx) in data" :key="idx">
+            <div class="container"><div class="img" :style="{height:bannerH+'px','background-image':'url('+item.advertPicUrl+')'}">1</div></div>
         </swiper-slide>
 
 
-        <swiper-slide>
+        <!-- <swiper-slide>
             <div class="container"><div class="img" :style="{height:bannerH+'px'}">2</div></div>
         </swiper-slide>
 
@@ -15,7 +17,7 @@
 
         <swiper-slide>
             <div class="container"><div class="img" :style="{height:bannerH+'px'}">4</div></div>
-        </swiper-slide>
+        </swiper-slide> -->
 
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
@@ -27,6 +29,7 @@ import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
   components: { swiper, swiperSlide },
+  props: ['data'],
   data() {
     return {
       bannerH: new Number(),

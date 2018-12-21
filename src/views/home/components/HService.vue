@@ -4,9 +4,9 @@
             <h1>企业服务</h1>
             <h2>企业服务宣传标语，尽量体现出服务特色</h2>
             <ul class="item">
-                <li v-for="(item,idx) in [1,2,3,4]" :key="idx">
-                    <img src="" :alt="'icon'+item">
-                    <h3>企业评估和咨询</h3>
+                <li v-for="(item,idx) in data" :key="idx">
+                    <img :src="item.advertPicUrl">
+                    <h3>{{item.advertTitle}}</h3>
                     <p>作为聚焦资本市场和财务报告的专业咨询机构，我们能够提供整合评估咨询服务，并与会计师事务所、律所、银行、机构投资者及监管机构紧密合作，为各行业客户提供支持。在过去的25年间，我们致力深耕亚太区......
 通过调用仲量联行的国际经验及专家资源，我们能够将服务范围拓展至全球。</p>
                 </li>
@@ -14,6 +14,14 @@
         </div>
     </div>
 </template>
+
+
+<script>
+export default {
+    props: ['data']
+}
+</script>
+
 
 <style lang="less" scoped>
 @import "../../../assets/base";

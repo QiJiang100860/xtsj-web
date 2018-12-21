@@ -4,10 +4,10 @@
             <h1>服务案例</h1>
             <h2>企业服务宣传标语，尽量体现出服务特色</h2>
             <ul class="item">
-                <li v-for="(item,idx) in [1,2,3,4,5,6]" :key="idx">
-                    <img :src="require('../../../../static/images/cpy-img.png')" alt="">
+                <li v-for="(item,idx) in data" :key="idx">
+                    <img :src="item.advertPicUrl">
                     <div class="infro">
-                        <h3>服务案例名称</h3>
+                        <h3>{{item.advertTitle||'服务案例名称'}}</h3>
                         <p>想居住的目标从未改变。在此基础上，“三好”体系再次深入理解人居需求，让好房子、好服务、好社区 的理念传递......  。。。。多家庭。万科“三好”，是万科始终如一的坚持，更是追求美好生活的信念</p>
                     </div>
                 </li>
@@ -15,6 +15,13 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    props: ['data']
+}
+</script>
+
 
 
 <style lang="less" scoped>

@@ -5,10 +5,10 @@
         <div class="content">
             <div class="container clear">
                 <div class="left l-wraper">
-                    <h1>集团公司简介</h1>
+                    <h1>{{data.advertTitle}}</h1>
                     <h2>introduction of group company</h2>
                     <div class="cpy-img">
-                        <img :src="require('../../../../static/images/cpy-img.png')" alt="">
+                        <img :src="data.advertPicUrl" alt="">
                     </div>
                 </div>
                 <div class="left r-wraper">
@@ -19,6 +19,13 @@
         </div>
     </div>
 </template>
+
+
+<script>
+export default {
+    props: ["data"]
+}
+</script>
 
 
 <style lang="less" scoped>

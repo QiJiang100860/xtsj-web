@@ -2,13 +2,19 @@
     <div class="service-adver">
         <h1>服务优势</h1>
         <h2>企业服务宣传标语，尽量体现出服务特色</h2>
+
         <div class="container">
-            <img src="" alt="1">
-            <img src="" alt="2">
-            <img src="" alt="3">
+
+            <img v-for="(item,idx) in data" :key="idx" :src="item.advertPicUrl">
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    props: ['data']
+}
+</script>
 
 
 <style lang="less" scoped>
