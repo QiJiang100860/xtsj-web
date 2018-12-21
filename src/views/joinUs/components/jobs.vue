@@ -57,7 +57,8 @@
             color: #4B5562;
             font-size: 16px;
             line-height: 30px;
-            .textOverflow(13)
+            // .textOverflow(13)
+            .textOverflow(30px,13)
         }
     }
 }

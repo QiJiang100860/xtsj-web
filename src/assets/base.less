@@ -1,12 +1,34 @@
 @navColor:rgba(#3E7DC5,1);
 @color:#051C38;
 
+.textOverflow(@lineHeight,@lineNum){
 
-.textOverflow(@lineNum){
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: @lineNum;
-    overflow: hidden;
+
+// .textOverflow(@lineNum){
+    // display: -webkit-box;
+    // -webkit-box-orient: vertical;
+    // -webkit-line-clamp: @lineNum;
+    // overflow: hidden;
+
+
+
+
+    position:relative;
+    line-height:@lineHeight;
+    /* 3 times the line-height to show 3 lines */
+    height:@lineHeight*@lineNum;
+    overflow:hidden;
+
+    &::after{
+        content:"...";
+        // font-weight:bold;
+        position:absolute;
+        bottom:0;
+        right:0;
+        padding:0 0px 1px 4px;
+        // background:url(http://newimg88.b0.upaiyun.com/newimg88/2014/09/ellipsis_bg.png) repeat-y;
+        background: #fff;
+    }
 }
 
 .bgCover(@url){

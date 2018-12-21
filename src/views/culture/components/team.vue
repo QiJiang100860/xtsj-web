@@ -55,12 +55,15 @@
                 color: #2C4058;
                 font-size: 20px;
                 margin-bottom: 10px;
-                .textOverflow(1)
+                // .textOverflow(24px,1)
             }
             p{
                 color: #4B5562;
                 font-size: 16px;
-                .textOverflow(2)
+                line-height: 24px;
+                .textOverflow(24px,2);
+                // .textOverflow(2);
+
             }
         }
     }

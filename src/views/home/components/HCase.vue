@@ -63,7 +63,11 @@
                     color: #333;
                     font-size: 14px;
                     line-height: 24px;
-                    .textOverflow(2);
+                    .textOverflow(24px,2);
+                    // .textOverflow(2);
+                    &::after{
+                        background: #f2f2f2;
+                    }
                 }
             }
         }   

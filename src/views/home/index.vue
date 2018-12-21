@@ -43,7 +43,9 @@ export default {
   },
   methods: {
     getPageData() {
-      home.getAdverts().then(res => {});
+      home.getAdverts().then(res => {
+        debugger
+      });
     }
   }
 };

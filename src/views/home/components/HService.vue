@@ -80,7 +80,11 @@
                 line-height: 26px;
                 color: #666666;
                 transition: all .3s;
-                .textOverflow(7);
+                .textOverflow(26px,7);
+                // .textOverflow(7);
+                &::after{
+                    transition: all .3s;
+                }
             }
 
             &:hover{
@@ -97,6 +101,10 @@
                 }
                 p{ 
                     color: #fff;
+                    &::after{
+                        background: #3E7CC3;
+                        color: #fff;
+                    }
                 }
             }
         }
