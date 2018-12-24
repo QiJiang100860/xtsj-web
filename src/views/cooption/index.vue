@@ -10,38 +10,28 @@
 
       <div class="clear">
         <div class="left cooption-left">
-
-
           <div class="right cooption-infro">
             <div class="english-letter">Business cooperation</div>
             <div class="chinese-letter">商务合作</div>
             <div class="under-line"></div>
 
-
-
             <div class="email-wrapper clear">
-              <img class="left" :src="require('../../../static/images/icon_email.png')" alt="">
-              <p class="left">15145789865@xtsj.com</p>
+              <img class="left" :src="require('../../../static/images/icon_email.png')" alt>
+              <p class="left">{{pageData.commerceEmail}}</p>
             </div>
 
-
             <div class="email-wrapper clear">
-              <img class="left" :src="require('../../../static/images/icon_phone.png')" alt="">
-              <p class="left">15145789865</p>
+              <img class="left" :src="require('../../../static/images/icon_phone.png')" alt>
+              <p class="left">{{pageData.commerceMobile}}</p>
             </div>
-
 
             <div class="ewm-wrapper">
-                <img class="left" :src="require('../../../static/images/ewm_img.png')" alt="">
+              <img class="left" :src="pageData.commerceQrCodePic" alt>
             </div>
-
           </div>
-
-
         </div>
 
-
-        <div class="right cooption-right"></div>
+        <div class="right cooption-right" :style="{'background-image':'url('+pageData.commercePic+')'}"></div>
       </div>
     </div>
     <xt-footer></xt-footer>
@@ -52,10 +42,31 @@
 <script>
 import xtHeader from "@/components/xtHeader";
 import xtFooter from "@/components/xtFooter";
+import { getCommerces } from "../../api/cooption";
 export default {
   components: {
     xtHeader,
     xtFooter
+  },
+  data() {
+    return {
+      pageData: {
+        commerceEmail: "",
+        commerceId: "",
+        commerceMobile: "",
+        commercePic: "",
+        commerceQrCodePic: ""
+      }
+    };
+  },
+  beforeMount() {
+    getCommerces().then(res => {
+      const data = res.data[0];
+      this.pageData.commerceEmail = data.commerceEmail;
+      this.pageData.commerceMobile = data.commerceMobile;
+      this.pageData.commercePic = data.commercePic;
+      this.pageData.commerceQrCodePic = data.commerceQrCodePic;
+    });
   }
 };
 </script>
@@ -86,30 +97,30 @@ export default {
       color: #2c4058;
     }
 
-    .under-line{
+    .under-line {
       height: 6px;
       border-top: 3px solid #000;
       border-bottom: 1px solid #000;
-      margin-top:10px;
+      margin-top: 10px;
     }
 
-    .email-wrapper{
+    .email-wrapper {
       margin-top: 30px;
-      img{
+      img {
         width: 65px;
         height: 65px;
       }
-      p{
-        color: #4B5561;
+      p {
+        color: #4b5561;
         font-size: 18px;
         line-height: 65px;
         margin-left: 20px;
       }
     }
 
-    .ewm-wrapper{
+    .ewm-wrapper {
       margin-top: 30px;
-      img{
+      img {
         width: 230px;
         height: 230px;
       }

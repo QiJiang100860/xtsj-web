@@ -5,7 +5,7 @@
       <div class="container img">
         <img :src="require('../../../static/images/service-bg.png')" alt>
       </div>
-      <s-item></s-item>
+      <s-item :data='serviveData'></s-item>
     </div>
     <xt-footer></xt-footer>
   </div>
@@ -15,10 +15,17 @@
 import SItem from "./components/SItem";
 import xtHeader from "@/components/xtHeader";
 import xtFooter from "@/components/xtFooter";
-
+import {getCompanys} from "../../api/service.js"
 export default {
   data() {
-    return {};
+    return {
+      serviveData:null
+    };
+  },
+  beforeMount(){
+    getCompanys().then(res=>{
+      this.serviveData = res.data
+    })
   },
   components: {
     SItem,

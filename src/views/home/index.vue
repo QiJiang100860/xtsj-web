@@ -58,7 +58,6 @@ export default {
         this.companyBrief = res.data.companyBrief[0];
         this.advange = res.data.advange;
         this.caseData = res.data.case
-        debugger
       });
     }
   }

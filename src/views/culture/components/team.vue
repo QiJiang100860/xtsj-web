@@ -4,11 +4,11 @@
 
         <div class="container clear">
 
-            <div v-for="(item,idx) in [1,2,3,4,5,6]" :key="idx" class="left team-item">
-                <img :src="require('../../../../static/images/cpy-img.png')" alt="">
+            <div v-for="(item,idx) in data" :key="idx" class="left team-item">
+                <img :src="item.advertPicUrl" alt="">
                 <div class="infro">
-                    <h2>看到伟大的无与伦比的美。湖区。{{item}}</h2>
-                    <p>新闻组：参与一个与您的业务有关的团队。您通常可以每天​​邮寄一次，但我鼓励您每天都能找到新鲜的话题。如果他们一直看到相同的消息，人们会把你调出来。记得永远不要垃圾邮件。仅加入与您的兴趣相同的群组。换句话说，当您宣传剃须膏时，请不要注册食谱交换组。</p>
+                    <h2>{{item.advertTitle}}</h2>
+                    <p>{{item.content}}</p>
                 </div>
             </div>
             
@@ -16,6 +16,11 @@
     </div>
 </template>
 
+<script>
+export default {
+    props:['data']
+}
+</script>
 
 
 <style lang="less" scoped>

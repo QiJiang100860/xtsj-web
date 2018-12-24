@@ -45,7 +45,7 @@
 
       <develop></develop>
 
-      <team></team>
+      <team :data="teamData"></team>
     </div>
     <xt-footer></xt-footer>
   </div>
@@ -58,12 +58,24 @@ import xtFooter from "@/components/xtFooter";
 
 import develop from "./components/develop";
 import team from "./components/team"
+
+import {getTeamList} from "../../api/culture"
 export default {
+  data(){
+    return {
+      teamData:null
+    }
+  },
   components: {
     xtHeader,
     xtFooter,
     develop,
     team
+  },
+  beforeMount(){
+    getTeamList().then(res=>{
+      this.teamData = res.data
+    })
   }
 };
 </script>

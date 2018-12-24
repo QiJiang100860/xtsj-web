@@ -3,7 +3,7 @@
     <video
       id="startVideo"
       autoplay="autoplay"
-      src="http://47.92.133.12/image-server/video/6d521f5f671f443a98f66f69ede5db22.mp4"
+      :src="vedioUrl"
     ></video>
 
     <div class="video-bg"></div>
@@ -12,15 +12,21 @@
 
 
 <script>
+import {getPageVideo} from "../../api/public.js"
 export default {
   data() {
     return {
-      _WHEIGHT: new Number()
+      _WHEIGHT: new Number(),
+      vedioUrl:""
     };
   },
   beforeMount() {
     let _height = document.documentElement.clientHeight;
     this._WHEIGHT = _height;
+
+    getPageVideo().then(res=>{
+      this.vedioUrl = res.data.advertPicUrl
+    })
   },
   mounted() {
     this.handlePlayEnd();
@@ -32,7 +38,6 @@ export default {
       videoEle.style.marginTop = -(height - this._WHEIGHT) / 2 + "px";
 
       videoEle.addEventListener("canplaythrough", () => {
-        alert("加载完成");
       });
 
       videoEle.addEventListener(
