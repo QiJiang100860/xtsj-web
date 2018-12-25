@@ -4,7 +4,7 @@
     <div class="content-wrapper">
       <div class="container">
         <div class="container img">
-          <img :src="require('../../../static/images/service-bg.png')" alt>
+          <img :src="pageData.commercePic" alt>
         </div>
       </div>
 
@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <div class="right cooption-right" :style="{'background-image':'url('+pageData.commercePic+')'}"></div>
+        <div class="right cooption-right" id="mapContainer"></div>
       </div>
     </div>
     <xt-footer></xt-footer>
@@ -43,6 +43,9 @@
 import xtHeader from "@/components/xtHeader";
 import xtFooter from "@/components/xtFooter";
 import { getCommerces } from "../../api/cooption";
+
+import AMap from "AMap";
+
 export default {
   components: {
     xtHeader,
@@ -56,7 +59,8 @@ export default {
         commerceMobile: "",
         commercePic: "",
         commerceQrCodePic: ""
-      }
+      },
+      potion: [108.885003,34.223045]
     };
   },
   beforeMount() {
@@ -67,6 +71,27 @@ export default {
       this.pageData.commercePic = data.commercePic;
       this.pageData.commerceQrCodePic = data.commerceQrCodePic;
     });
+  },
+  mounted() {
+    this.initMap(this.potion);
+  },
+  methods: {
+    initMap(potion) {
+      let map = new AMap.Map("mapContainer", {
+        center: potion,
+        zoom: 17,
+      });
+
+      let maker = new AMap.Marker({
+        icon: "../../static/images/map_icon.png",
+        // offset:AMap.Pixel(-130,-74)
+        offset: new AMap.Pixel(-70, -68)
+      })
+
+
+      map.add(maker)
+     
+    }
   }
 };
 </script>
@@ -79,6 +104,7 @@ export default {
     display: block;
     width: 1920px;
     margin-left: -360px;
+    height: 376px;
   }
 }
 

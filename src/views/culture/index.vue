@@ -7,9 +7,10 @@
 
 
         <div class="content">
-          <h1>企业服务</h1>
-          <p>Enterprise service</p>
+          <h1>企业理念</h1>
+          <p>Enterprise Concept</p>
           <div class="infro">
+
             <div class="c-left">
               <div class="item">
                 <h2>企业精神</h2>
@@ -25,6 +26,7 @@
               </div>
             </div>
             <div class="c-line"></div>
+
             <div class="c-right">
               <div class="item">
                 <h2>企业精神</h2>
