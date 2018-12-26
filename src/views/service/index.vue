@@ -3,7 +3,7 @@
     <xt-header :navType="2"></xt-header>
     <div class="content-wrapper">
       <div class="container img">
-        <img :src="require('../../../static/images/service-bg.png')" alt>
+        <img :src="mainPic" alt>
       </div>
       <s-item :data='serviveData'></s-item>
     </div>
@@ -19,12 +19,14 @@ import {getCompanys} from "../../api/service.js"
 export default {
   data() {
     return {
-      serviveData:null
+      serviveData:null,
+      mainPic:''
     };
   },
   beforeMount(){
     getCompanys().then(res=>{
-      this.serviveData = res.data
+      this.serviveData = res.data.serverList
+      this.mainPic = res.data.bgPic[0].companyServerPic
     })
   },
   components: {
@@ -44,6 +46,7 @@ export default {
       display: block;
       width: 1920px;
       margin-left: -360px;
+      height: 375px;
     }
   }
 

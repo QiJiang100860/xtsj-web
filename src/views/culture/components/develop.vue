@@ -4,20 +4,20 @@
 
     <div class="develop-wrapper">
 
-      <div class="item" v-for="(item,idx) in [2008,2009,2012,2013,2015,2016,2017,2018]" :key="idx">
+      <div class="item" v-for="(item,idx) in data" :key="idx">
 
         <div class="left-wrapper" :class="{'margin_top':(idx+1)%2==1}">
           <template v-if="(idx+1)%2==1">
-            <h2>{{item}}年</h2>
-            <p><span></span>公司正式成立，企业开始新的征程，注册公司正式成立，企业开始新的征程，注册 资金二百万元。公司稳步发展，逐步建成 体系,后期发展可期</p>
+            <h2>{{item.year}}年</h2>
+            <p><span></span>{{item.yearContent}} 资金二百万元。公司稳步发展，逐步建成 体系,后期发展可期</p>
           </template>
         </div>
         <div class="line"></div>
 
         <div class="right-wrapper" :class="{'margin_top':(idx+1)%2==0}">
           <template v-if="(idx+1)%2==0">
-            <h2>{{item}}年</h2>
-            <p><span></span>公司正式成立，企业开始新的征程，注册 资金二百万元。公司稳步发展，逐步建成 体系,后期发展可期</p>
+            <h2>{{item.year}}年</h2>
+            <p><span></span>{{item.yearContent}}</p>
           </template>
         </div>
       </div>
@@ -25,6 +25,13 @@
     </div>
   </div>
 </template>
+
+
+<script>
+export default {
+  props: ['data']
+}
+</script>
 
 
 <style lang="less" scoped>

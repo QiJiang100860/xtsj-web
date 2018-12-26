@@ -10,9 +10,9 @@ import qs from 'qs'
 // }
 
 
-export function getTeamList() {
+export function getInfo() {
     return request({
-      url: '/web/companyServe/getTeamList',
+      url: '/web/companyServe/getInfo',
       method: 'post',
     })
   }

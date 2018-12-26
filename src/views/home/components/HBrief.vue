@@ -1,8 +1,8 @@
 <template>
-    <div class="brief">
+    <div class="brief" :style="{'background-image':'url('+data.bgPhoto+')'}">
         <div class="brief-left"></div>
         <div class="brief-right"></div>
-        <div class="content" :style="{'background-image':'url('+data.bgPhoto+')'}">
+        <div class="content">
             <div class="container clear">
                 <div class="left l-wraper">
                     <h1>{{data.companyName}}</h1>

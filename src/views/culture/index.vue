@@ -12,40 +12,42 @@
           <div class="infro">
 
             <div class="c-left">
-              <div class="item">
+              <div class="item" v-for="(item,idx) in curlData" :key="idx" v-if="idx%2==0">
+                <h2>{{item.curlName}}</h2>
+                <p>{{item.curlContent}}</p>
+              </div>
+              <!-- <div class="item">
                 <h2>企业精神</h2>
                 <p>商业趋势洞察；建立竞争优势；推动执行；营造资源生态</p>
               </div>
               <div class="item">
                 <h2>企业精神</h2>
                 <p>商业趋势洞察；建立竞争优势；推动执行；营造资源生态</p>
-              </div>
-              <div class="item">
-                <h2>企业精神</h2>
-                <p>商业趋势洞察；建立竞争优势；推动执行；营造资源生态</p>
-              </div>
+              </div> -->
             </div>
             <div class="c-line"></div>
 
+
+
             <div class="c-right">
-              <div class="item">
+              <div class="item" v-for="(item,idx) in curlData" :key="idx" v-if="idx%2==1">
+                <h2>{{item.curlName}}</h2>
+                <p>{{item.curlContent}}</p>
+              </div>
+              <!-- <div class="item">
                 <h2>企业精神</h2>
                 <p>商业趋势洞察；建立竞争优势；推动执行；营造资源生态</p>
               </div>
               <div class="item">
                 <h2>企业精神</h2>
                 <p>商业趋势洞察；建立竞争优势；推动执行；营造资源生态</p>
-              </div>
-              <div class="item">
-                <h2>企业精神</h2>
-                <p>商业趋势洞察；建立竞争优势；推动执行；营造资源生态</p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
       </div>
 
-      <develop></develop>
+      <develop :data="historyData"></develop>
 
       <team :data="teamData"></team>
     </div>
@@ -61,10 +63,12 @@ import xtFooter from "@/components/xtFooter";
 import develop from "./components/develop";
 import team from "./components/team"
 
-import {getTeamList} from "../../api/culture"
+import {getInfo} from "../../api/culture"
 export default {
   data(){
     return {
+      curlData:null,
+      historyData:null,
       teamData:null
     }
   },
@@ -75,8 +79,10 @@ export default {
     team
   },
   beforeMount(){
-    getTeamList().then(res=>{
-      this.teamData = res.data
+    getInfo().then(res=>{
+      this.curlData = res.data.curl
+      this.teamData = res.data.team
+      this.historyData = res.data.history
     })
   }
 };
