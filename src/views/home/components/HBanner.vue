@@ -3,7 +3,7 @@
 
 
         <swiper-slide v-for="(item,idx) in data" :key="idx">
-            <div class="container"><div class="img" :style="{height:bannerH+'px','background-image':'url('+item.advertPicUrl+')'}">1</div></div>
+            <div class="container"><div class="img" :style="{height:bannerH+'px','background-image':'url('+item.advertPicUrl+')'}"></div></div>
         </swiper-slide>
 
 
